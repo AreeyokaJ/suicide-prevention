@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be Kind, Be Happy</title>
+    <link rel="stylesheet" href="home.css">
+    <style>
+        body {
+            font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(187, 168, 1);
+            text-align: center;
+            overflow-x: hidden;
+            background-image: url(https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExcjNseXRnNjl5Njh2c3VhY204cGlyb3IzeTM5dW15b3phbzBnZDdrdSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/qxsfIFvwbJJXw5MiTH/giphy.gif);
+        }
+
+        header {
+            background: #432502;
+            color: rgb(244, 244, 239);
+            padding: 10px 0;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: rgb(186, 141, 3);
+            box-shadow: 0px 0px 10px rgb(142, 107, 2);
+        }
+        .sun {
+            position: fixed;
+            bottom: -100px;
+            left: 50%;
+            transform: translateX(-50%) rotate(0deg);
+            width: 100px;
+            height: 100px;
+            background: yellow;
+            border-radius: 50%;
+            box-shadow: 0 0 50px rgba(255, 223, 0, 0.8);
+            transition: transform 2s ease-out, width 2s ease-out, height 2s ease-out;
+        }
+        .quote {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2rem;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 1s ease-in;
+        }
+        footer {
+            background: #432502;
+            color: white;
+            padding: 5px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <svg width="500" height="100">
+            <defs>
+              <path id="curve" d="M 50 100 Q 250 -50 450 100" fill="transparent"/>
+            </defs>
+            <text width="500">
+              <textPath href="#curve" startOffset="50%" text-anchor="middle" fill="white" font-size="50">
+                Be Kind, Be Happy
+              </textPath>
+            </text>
+          </svg>
+        <!--<h1>Be Kind, Be Happy</h1>-->
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <h2>About Us</h2>
+        <p>This is a simple homepage template built using HTML and CSS.</p>
+    </div>
+    <div class="sun" id="sun"><img src="sun.jpg" alt="Feel the Sun's warmth and joy!" width="300">
+    </div>
+    <div class="quote" id="quote"> "If you want to be happy, be." ― Leo Tolstoy</div>
+    <footer>
+        <p>&copy; 2025 Be Kind, Be Happy. All Rights Reserved.</p>
+    </footer>
+    <script>
+        window.addEventListener('scroll', function() {
+            let sun = document.getElementById('sun');
+            let quote = document.getElementById('quote');
+            let scrollY = window.scrollY;
+            
+            if (scrollY > 100) {
+                let scale = Math.min(10, 1 + scrollY / 100);
+                sun.style.transform = `translateX(-50%) rotate(${scrollY}deg)`;
+                sun.style.width = `${100 * scale}px`;
+                sun.style.height = `${100 * scale}px`;
+                if (scale >= 10) {
+                    quote.style.opacity = 1;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
